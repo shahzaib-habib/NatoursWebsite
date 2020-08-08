@@ -7,8 +7,8 @@ export const bookTour = async tourId => {
     // that tourId will be coming right from the tour.pug (from data-tour-id)
     try {
         // 1) Get the checkout session from the API using this route '/checkout-session/:tourId'
-        const session = await axios(`http://127.0.0.1:3000/api/v1/bookings/checkout-session/${tourId}`);
-        console.log(session);
+        const session = await axios(`/api/v1/bookings/checkout-session/${tourId}`);
+        // console.log(session);
         // now we need to connect the green button to the function that we just created inside stripe.js
 
         // 2) Create checkout form + charge the credit card
