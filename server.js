@@ -36,3 +36,14 @@ process.on('unhandledRejection', err => {
         process.exit(1);
     });
 });
+
+// so basically SIGTERM is an event that can be emitted and that our application
+// receives and can then respond to,
+process.on('SIGTERM', () => {
+    console.log('👋 SIGTERM RECEIVED. Shutting down gracefully');
+    // Now we actually close the server, but before that still handle all of the 
+    // pending requests
+    server.close(() => {
+        console.log('💥 Process terminated!');
+    });
+});

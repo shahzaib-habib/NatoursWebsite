@@ -21,6 +21,8 @@ const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
+app.enable('trust proxy');
+
 app.set('view engine', 'pug');
 // "pug templates" are actually called "views" in express. that is because these
 // templates are in fact the "views" in the MVC architecture.
